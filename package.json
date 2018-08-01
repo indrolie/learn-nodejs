@@ -1,0 +1,25 @@
+{
+  "name": "learn-nodejs",
+  "version": "1.0.0",
+  "description": "Learn Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Indro Lie",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indrolie/learn-nodejs.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "bugs": {
+    "url": "https://github.com/indrolie/learn-nodejs/issues"
+  },
+  "homepage": "https://github.com/indrolie/learn-nodejs#readme",
+  "dependencies": {
+    "colors": "^1.3.1"
+  }
+}
