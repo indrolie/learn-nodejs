@@ -1,29 +1,31 @@
 const readline = require("readline");
 const fetch = require("node-fetch");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+const run = () => {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
 
-rl.question(
-  "Please insert the user's github name to see the followers:",
-  answer => {
-    showFollowers(answer);
+  rl.question(
+    "Please insert the user's github name to see the followers: ",
+    username => {
+      fetchFollowers(username);
+      rl.close();
+    }
+  );
+};
 
-    rl.close();
-  }
-);
-
-const followersName = data => {
-  data.forEach(person => {
-    const name = person.login;
-    console.log(name);
+const displayFollowers = data => {
+  data.forEach(({ login }) => {
+    console.log(login);
   });
 };
 
-const showFollowers = answer => {
-  fetch(`https://api.github.com/users/${answer}/followers`)
+const fetchFollowers = username => {
+  fetch(`https://api.github.com/users/${username}/followers`)
     .then(response => response.json())
-    .then(followersName);
+    .then(displayFollowers);
 };
+
+run();
